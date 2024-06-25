@@ -52,20 +52,20 @@
       <div class="container is-max-desktop">
         <div class="columns is-centered">
           <div class="column has-text-centered">
-            <h1 class="title is-1 publication-title">Academic Project Page</h1>
+            <h1 class="title is-1 publication-title">Discovering Robotic Interaction Modes with Discrete Representation Learning</h1>
             <div class="is-size-5 publication-authors">
               <!-- Paper authors -->
               <span class="author-block">
-                <a href="FIRST AUTHOR PERSONAL LINK" target="_blank">First Author</a><sup>*</sup>,</span>
+                <a href="FIRST AUTHOR PERSONAL LINK" target="_blank">Anonymous author</a><sup>*</sup>,</span>
                 <span class="author-block">
-                  <a href="SECOND AUTHOR PERSONAL LINK" target="_blank">Second Author</a><sup>*</sup>,</span>
+                  <a href="SECOND AUTHOR PERSONAL LINK" target="_blank">Anonymous author</a><sup>*</sup>,</span>
                   <span class="author-block">
-                    <a href="THIRD AUTHOR PERSONAL LINK" target="_blank">Third Author</a>
+                    <a href="THIRD AUTHOR PERSONAL LINK" target="_blank">Anonymous author</a>
                   </span>
                   </div>
 
                   <div class="is-size-5 publication-authors">
-                    <span class="author-block">Institution Name<br>Conferance name and year</span>
+                    <span class="author-block">Anonymous Institution Name<br>CoRL2024</span>
                     <span class="eql-cntrb"><small><br><sup>*</sup>Indicates Equal Contribution</small></span>
                   </div>
 
@@ -123,22 +123,22 @@
 </section>
 
 
-<!-- Teaser video-->
-<section class="hero teaser">
-  <div class="container is-max-desktop">
-    <div class="hero-body">
-      <video poster="" id="tree" autoplay controls muted loop height="100%">
-        <!-- Your video here -->
-        <source src="static/videos/banner_video.mp4"
-        type="video/mp4">
-      </video>
-      <h2 class="subtitle has-text-centered">
-        Aliquam vitae elit ullamcorper tellus egestas pellentesque. Ut lacus tellus, maximus vel lectus at, placerat pretium mi. Maecenas dignissim tincidunt vestibulum. Sed consequat hendrerit nisl ut maximus. 
-      </h2>
-    </div>
-  </div>
-</section>
-<!-- End teaser video -->
+<!--&lt;!&ndash; Teaser video&ndash;&gt;-->
+<!--<section class="hero teaser">-->
+<!--  <div class="container is-max-desktop">-->
+<!--    <div class="hero-body">-->
+<!--      <video poster="" id="tree" autoplay controls muted loop height="100%">-->
+<!--        &lt;!&ndash; Your video here &ndash;&gt;-->
+<!--        <source src="static/videos/banner_video.mp4"-->
+<!--        type="video/mp4">-->
+<!--      </video>-->
+<!--      <h2 class="subtitle has-text-centered">-->
+<!--        Aliquam vitae elit ullamcorper tellus egestas pellentesque. Ut lacus tellus, maximus vel lectus at, placerat pretium mi. Maecenas dignissim tincidunt vestibulum. Sed consequat hendrerit nisl ut maximus. -->
+<!--      </h2>-->
+<!--    </div>-->
+<!--  </div>-->
+<!--</section>-->
+<!--&lt;!&ndash; End teaser video &ndash;&gt;-->
 
 <!-- Paper abstract -->
 <section class="section hero is-light">
@@ -148,7 +148,23 @@
         <h2 class="title is-3">Abstract</h2>
         <div class="content has-text-justified">
           <p>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin ullamcorper tellus sed ante aliquam tempus. Etiam porttitor urna feugiat nibh elementum, et tempor dolor mattis. Donec accumsan enim augue, a vulputate nisi sodales sit amet. Proin bibendum ex eget mauris cursus euismod nec et nibh. Maecenas ac gravida ante, nec cursus dui. Vivamus purus nibh, placerat ac purus eget, sagittis vestibulum metus. Sed vestibulum bibendum lectus gravida commodo. Pellentesque auctor leo vitae sagittis suscipit.
+
+Human actions manipulating articulated objects, such as opening and
+closing a drawer, can be categorized into multiple modalities we define as interac-
+tion modes. Traditional robot learning approaches lack discrete representations of
+these modes, which are crucial for empirical sampling and grounding. In this paper,
+we present ActAIM2, which learns a discrete representation of robot manipulation
+interaction modes in a purely unsupervised fashion, without the use of expert labels
+or simulator-based privileged information. Utilizing novel data collection methods
+involving simulator rollouts, ActAIM2 consists of an interaction mode selector
+and a low-level action predictor. The selector generates discrete representations
+of potential interaction modes with self-supervision, while the predictor outputs
+corresponding action trajectories. Our method is validated through its success
+rate in manipulating articulated objects and its robustness in sampling meaning-
+ful actions from the discrete representation. Extensive experiments demonstrate
+ActAIM2’s effectiveness in enhancing manipulability and generalizability over
+baselines and ablation studies.
+
           </p>
         </div>
       </div>
@@ -162,35 +178,94 @@
 <section class="hero is-small">
   <div class="hero-body">
     <div class="container">
+      <h2 class="title is-3">Method</h2>
       <div id="results-carousel" class="carousel results-carousel">
        <div class="item">
         <!-- Your image here -->
-        <img src="static/images/carousel1.jpg" alt="MY ALT TEXT"/>
+        <img src="static/images/figures/teaser_3.png" alt="MY ALT TEXT"/>
         <h2 class="subtitle has-text-centered">
-          First image description.
+          ActAIM2 identifies meaningful interaction modes such as open and close drawers from RGB-D images of articulated objects and robots.
+          It represents these modes as discrete clusters of embeddings and trains a policy to generate control actions for each cluster-based interaction.
         </h2>
       </div>
       <div class="item">
         <!-- Your image here -->
-        <img src="static/images/carousel2.jpg" alt="MY ALT TEXT"/>
+        <img src="static/images/figures/Fig2_3.png" alt="MY ALT TEXT"/>
         <h2 class="subtitle has-text-centered">
-          Second image description.
+          GMM Model Selector The mode selector, a generative model, processes the differences between
+the initial and final image visual embeddings as generated data, using the initial image embeddings as the
+conditional variable.
         </h2>
       </div>
       <div class="item">
         <!-- Your image here -->
-        <img src="static/images/carousel3.jpg" alt="MY ALT TEXT"/>
+        <img src="static/images/figures/fig3.jpg" alt="MY ALT TEXT"/>
         <h2 class="subtitle has-text-centered">
-         Third image description.
+         Behavior Cloning Action Predictor Interaction mode ε is sampled from latent space
+embedding from model selector. 5 Multiview RGBD observations from circled cameras are back-projected and
+fused into a color point cloud to render novel views. Rendered image tokens and interaction mode token are
+contacted and fed through a multiview transformer to predict action a = (p, R, q).
        </h2>
      </div>
      <div class="item">
       <!-- Your image here -->
-      <img src="static/images/carousel4.jpg" alt="MY ALT TEXT"/>
+      <img src="static/images/figures/mode_selector.png" alt="MY ALT TEXT"/>
       <h2 class="subtitle has-text-centered">
-        Fourth image description.
+        Mode Selector Decoder Architecture: The depicted architecture highlights the functionality
+of the mode selector decoder, which is designed to process two primary inputs: multi-view RGBD images
+O i = (O 0 i , O 1 i , O 2 i , O 3 i , O 4 i ), and the Mixture of Gaussian (GMM) variable x. It is important to note that x
+can be represented as a multi-view feature vector, with our encoding approach preserving the separation of
+multi-view channels. Initially, the multi-view RGBD images are passed through a pre-trained VGG-19 image
+encoder to extract feature vectors for each view. Subsequently, these feature vectors, along with the GMM
+variable x, are inputted into a joint transformer. This transformer, featuring four attention layers, is tasked with
+producing the means and variances associated with the reconstructed task embedding ϵ.
       </h2>
     </div>
+     <div class="item">
+      <!-- Your image here -->
+      <img src="static/images/figures/action_predictor.png" alt="MY ALT TEXT"/>
+      <h2 class="subtitle has-text-centered">
+        Action Predictor Architecture: This model integrates multi-view observations directly as input,
+sourced from predefined cameras within the scene. The process begins with the extraction of five RGBD images,
+which are subsequently transformed into RGB point clouds. These are then subject to orthogonal projection
+to generate five novel view images. Subsequently, these novel views are partitioned into smaller patches and
+fed into a joint transformer. This transformer, characterized by four attention layers, integrates the sampled
+task embedding derived from a Mixture of Gaussian distribution. The architecture of the joint transformer
+encompasses eight attention layers, culminating in the production of a heatmap. This heatmap delineates the
+action’s translation, the discretized rotation, and a binary variable indicating the gripper’s state—open or closed.
+      </h2>
+     </div>
+     <div class="item">
+      <!-- Your image here -->
+      <img src="static/images/figures/mode_selector_training.png" alt="MY ALT TEXT"/>
+      <h2 class="subtitle has-text-centered">
+        Training Process of the Mode Selector: This figure illustrates the training procedure of the mode selector,
+mirroring the approach of a conditional generative model. It highlights the contrastive analysis between the
+initial and final observations—the latter serving as the ground truth for task embedding—to delineate generated
+data against the backdrop of encoded initial images as the conditional variable. The process involves inputting
+both the generated task embedding data and the conditional variable into a 4-layer Residual network-based mode
+encoder, which then predicts the categorical variable c. Following the Gaussian Mixture Variational Autoencoder
+(GMVAE) methodology, the Gaussian Mixture Model (GMM) variable x is computed and introduced alongside
+the conditional variable to the task embedding transformer decoder. This model is tasked with predicting the
+reconstructed task embedding, sampled from the Gaussian distribution as outlined in the architecture of the
+mode selector decoder, and calculating the reconstruction loss against the input ground truth data.
+      </h2>
+    </div>
+     <div class="item">
+      <!-- Your image here -->
+      <img src="static/images/figures/mode_selector_inference.png" alt="MY ALT TEXT"/>
+      <h2 class="subtitle has-text-centered">
+        Action Predictor Architecture: This model integrates multi-view observations directly as input,
+sourced from predefined cameras within the scene. The process begins with the extraction of five RGBD images,
+which are subsequently transformed into RGB point clouds. These are then subject to orthogonal projection
+to generate five novel view images. Subsequently, these novel views are partitioned into smaller patches and
+fed into a joint transformer. This transformer, characterized by four attention layers, integrates the sampled
+task embedding derived from a Mixture of Gaussian distribution. The architecture of the joint transformer
+encompasses eight attention layers, culminating in the production of a heatmap. This heatmap delineates the
+action’s translation, the discretized rotation, and a binary variable indicating the gripper’s state—open or closed.
+      </h2>
+     </div>
+
   </div>
 </div>
 </div>
@@ -198,27 +273,72 @@
 <!-- End image carousel -->
 
 
-
-
-<!-- Youtube video -->
-<section class="hero is-small is-light">
+<!-- Image carousel -->
+<section class="hero is-small">
   <div class="hero-body">
     <div class="container">
-      <!-- Paper video. -->
-      <h2 class="title is-3">Video Presentation</h2>
-      <div class="columns is-centered has-text-centered">
-        <div class="column is-four-fifths">
-          
-          <div class="publication-video">
-            <!-- Youtube embed code here -->
-            <iframe src="https://www.youtube.com/embed/JkaxUblCGz0" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
-          </div>
-        </div>
+      <h2 class="title is-3">More Qualitative Results</h2>
+      <div id="qual_0" class="carousel results-carousel">
+       <div class="item">
+        <!-- Your image here -->
+        <img src="static/images/figures/qual_0.png" alt="MY ALT TEXT"/>
+        <h2 class="subtitle has-text-centered">
+        qual_0
+        </h2>
       </div>
-    </div>
+      <div class="item">
+        <!-- Your image here -->
+        <img src="static/images/figures/qual_1.png" alt="MY ALT TEXT"/>
+        <h2 class="subtitle has-text-centered">
+        qual_1
+        </h2>
+      </div>
+        <div class="item">
+        <!-- Your image here -->
+        <img src="static/images/figures/qual_2.png" alt="MY ALT TEXT"/>
+        <h2 class="subtitle has-text-centered">
+        qual_2
+        </h2>
+      </div>
+        <div class="item">
+        <!-- Your image here -->
+        <img src="static/images/figures/qual_3.png" alt="MY ALT TEXT"/>
+        <h2 class="subtitle has-text-centered">
+        qual_3
+        </h2>
+      </div>
+        <div class="item">
+        <!-- Your image here -->
+        <img src="static/images/figures/qual_4.png" alt="MY ALT TEXT"/>
+        <h2 class="subtitle has-text-centered">
+        qual_4
+        </h2>
+      </div>
   </div>
+</div>
+</div>
 </section>
-<!-- End youtube video -->
+<!-- End image carousel -->
+
+<!--&lt;!&ndash; Youtube video &ndash;&gt;-->
+<!--<section class="hero is-small is-light">-->
+<!--  <div class="hero-body">-->
+<!--    <div class="container">-->
+<!--      &lt;!&ndash; Paper video. &ndash;&gt;-->
+<!--      <h2 class="title is-3">Video Presentation</h2>-->
+<!--      <div class="columns is-centered has-text-centered">-->
+<!--        <div class="column is-four-fifths">-->
+<!--          -->
+<!--          <div class="publication-video">-->
+<!--            &lt;!&ndash; Youtube embed code here &ndash;&gt;-->
+<!--            <iframe src="https://www.youtube.com/embed/JkaxUblCGz0" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>-->
+<!--          </div>-->
+<!--        </div>-->
+<!--      </div>-->
+<!--    </div>-->
+<!--  </div>-->
+<!--</section>-->
+<!--&lt;!&ndash; End youtube video &ndash;&gt;-->
 
 
 <!-- Video carousel -->
@@ -226,25 +346,118 @@
   <div class="hero-body">
     <div class="container">
       <h2 class="title is-3">Another Carousel</h2>
-      <div id="results-carousel" class="carousel results-carousel">
+      <div id="Video Results" class="carousel results-carousel">
         <div class="item item-video1">
           <video poster="" id="video1" autoplay controls muted loop height="100%">
             <!-- Your video file here -->
-            <source src="static/videos/carousel1.mp4"
+            <source src="static/videos/video_154_0.mp4"
             type="video/mp4">
           </video>
         </div>
         <div class="item item-video2">
           <video poster="" id="video2" autoplay controls muted loop height="100%">
             <!-- Your video file here -->
-            <source src="static/videos/carousel2.mp4"
+            <source src="static/videos/video_154_1.mp4"
             type="video/mp4">
           </video>
         </div>
         <div class="item item-video3">
           <video poster="" id="video3" autoplay controls muted loop height="100%">\
             <!-- Your video file here -->
-            <source src="static/videos/carousel3.mp4"
+            <source src="static/videos/video_154_2.mp4"
+            type="video/mp4">
+          </video>
+        </div>
+        <div class="item item-video3">
+          <video poster="" id="video4" autoplay controls muted loop height="100%">\
+            <!-- Your video file here -->
+            <source src="static/videos/video_8961_0.mp4"
+            type="video/mp4">
+          </video>
+        </div>
+        <div class="item item-video3">
+          <video poster="" id="video5" autoplay controls muted loop height="100%">\
+            <!-- Your video file here -->
+            <source src="static/videos/video_8961_1.mp4"
+            type="video/mp4">
+          </video>
+        </div>
+        <div class="item item-video3">
+          <video poster="" id="video6" autoplay controls muted loop height="100%">\
+            <!-- Your video file here -->
+            <source src="static/videos/video_8961_2.mp4"
+            type="video/mp4">
+          </video>
+        </div>
+        <div class="item item-video3">
+          <video poster="" id="video7" autoplay controls muted loop height="100%">\
+            <!-- Your video file here -->
+            <source src="static/videos/video_19898_0.mp4"
+            type="video/mp4">
+          </video>
+        </div>
+        <div class="item item-video3">
+          <video poster="" id="video8" autoplay controls muted loop height="100%">\
+            <!-- Your video file here -->
+            <source src="static/videos/video_19898_1.mp4"
+            type="video/mp4">"
+            type="video/mp4">
+          </video>
+        </div>
+        <div class="item item-video3">
+          <video poster="" id="video9" autoplay controls muted loop height="100%">\
+            <!-- Your video file here -->
+            <source src="static/videos/video_19898_2.mp4"
+            type="video/mp4">"
+            type="video/mp4">
+          </video>
+        </div>
+        <div class="item item-video3">
+          <video poster="" id="video10" autoplay controls muted loop height="100%">\
+            <!-- Your video file here -->
+            <source src="static/videos/video_20555_0.mp4"
+            type="video/mp4">
+          </video>
+        </div>
+        <div class="item item-video3">
+          <video poster="" id="video11" autoplay controls muted loop height="100%">\
+            <!-- Your video file here -->
+            <source src="static/videos/video_20555_1.mp4"
+            type="video/mp4">
+          </video>
+        </div>
+        <div class="item item-video3">
+          <video poster="" id="video12" autoplay controls muted loop height="100%">\
+            <!-- Your video file here -->
+            <source src="static/videos/video_41083_0.mp4"
+            type="video/mp4">
+          </video>
+        </div>
+        <div class="item item-video3">
+          <video poster="" id="video13" autoplay controls muted loop height="100%">\
+            <!-- Your video file here -->
+            <source src="static/videos/video_41083_1.mp4"
+            type="video/mp4">
+          </video>
+        </div>
+        <div class="item item-video3">
+          <video poster="" id="video14" autoplay controls muted loop height="100%">\
+            <!-- Your video file here -->
+            <source src="static/videos/video_41083_2.mp4"
+            type="video/mp4">
+          </video>
+        </div>
+        <div class="item item-video3">
+          <video poster="" id="video15" autoplay controls muted loop height="100%">\
+            <!-- Your video file here -->
+            <source src="static/videos/video_102844_0.mp4"
+            type="video/mp4">
+          </video>
+        </div>
+        <div class="item item-video3">
+          <video poster="" id="video16" autoplay controls muted loop height="100%">\
+            <!-- Your video file here -->
+            <source src="static/videos/video_102844_1.mp4"
             type="video/mp4">
           </video>
         </div>
@@ -263,9 +476,9 @@
 <section class="hero is-small is-light">
   <div class="hero-body">
     <div class="container">
-      <h2 class="title">Poster</h2>
+      <h2 class="title">Paper pdf</h2>
 
-      <iframe  src="static/pdfs/sample.pdf" width="100%" height="550">
+      <iframe  src="static/pdfs/_CORL_2024__Interaction_Modes_Discrete_Representation.pdf" width="100%" height="550">
           </iframe>
         
       </div>
