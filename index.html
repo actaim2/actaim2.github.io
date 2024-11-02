@@ -142,7 +142,7 @@
   <div class="container is-max-desktop">
     <div class="columns is-centered has-text-centered">
       <div class="column is-four-fifths">
-        <h2 class="title is-3">Abstract</h2>
+        <h2 class="title is-3">Main Points</h2>
         <div class="content has-text-justified">
           <ul class="fa-ul">
             <li><span class="fa-li"><i class="fas fa-robot"></i></span>Humans use different interaction modes when manipulating objects like opening or closing a drawer.</li>
@@ -158,6 +158,74 @@
   </div>
 </section>
 <!-- End paper abstract -->
+
+<!-- Blog Reading Session -->
+<section class="section hero is-light">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Unlocking Robotic Intelligence: How ActAIM2 Is Changing the Game for Interaction Modes</h2>
+        <div class="content has-text-justified">
+          <p>
+            Imagine a robot that intuitively knows whether to open or close a drawer, selecting the appropriate action without any prior instruction or explicit programming. This level of autonomy has long been a challenge in robotics. However, recent advancements in AI and robotics by Liquan Wang and his team are turning this vision into reality with their innovative <strong>ActAIM2</strong> model.
+          </p>
+
+          <h3 class="title is-4">What's New in Robotic Learning?</h3>
+          <p>
+            In traditional robotics, teaching machines to recognize and act on different manipulation modes has been a significant hurdle. Most models struggle without direct supervision or predefined expert labels, limiting their ability to adapt to new tasks or environments. Enter <strong>ActAIM2</strong>—a breakthrough that equips robots with the ability to understand and execute complex tasks by learning interaction modes from scratch, without external labels or privileged simulator data.
+          </p>
+
+          <h3 class="title is-4">Introducing ActAIM2: A New Way to Learn</h3>
+          <p>
+            ActAIM2 distinguishes itself with a dual-component structure:
+          </p>
+          <ul>
+            <li><strong>Interaction Mode Selector</strong>: A smart module that captures and clusters different interaction types into discrete representations.</li>
+            <li><strong>Low-Level Action Predictor</strong>: A companion module that interprets these modes and generates precise actions for the robot to execute.</li>
+          </ul>
+
+          <h3 class="title is-4">How Does ActAIM2 Work?</h3>
+          <p>
+            Think of ActAIM2 as a self-taught explorer. It observes simulated activities and picks up on the nuances of each task, using self-supervised learning to create clusters of interaction types. For example, the model can group actions related to opening or closing an object and then learn the specific movements required for each.
+          </p>
+          <p>
+            Key techniques that power ActAIM2 include:
+          </p>
+          <ul>
+            <li><strong>Generative Modeling</strong>: The mode selector uses generative processes to identify differences between initial and final states.</li>
+            <li><strong>Multiview Fusion</strong>: To build a robust understanding, the model integrates observations from multiple angles into a comprehensive visual input.</li>
+          </ul>
+
+          <h3 class="title is-4">Why Is This Important?</h3>
+          <p>
+            This method marks a significant shift in how robots learn to interact with their environments:
+          </p>
+          <ul>
+            <li><strong>No Human Labels Needed</strong>: ActAIM2’s unsupervised learning approach means it doesn't rely on manually labeled data, making it highly adaptable and scalable.</li>
+            <li><strong>Improved Manipulability</strong>: By breaking down tasks into discrete interaction modes, robots can handle new tasks more efficiently.</li>
+            <li><strong>Enhanced Generalization</strong>: The model’s design enables it to apply what it learns to different scenarios, boosting performance across various tasks.</li>
+          </ul>
+
+          <h3 class="title is-4">Real-World Implications</h3>
+          <p>
+            The potential impact of ActAIM2 spans multiple industries:
+          </p>
+          <ul>
+            <li><strong>Manufacturing</strong>: Robots that can autonomously switch between complex tasks like assembling or disassembling products.</li>
+            <li><strong>Healthcare</strong>: Assistive robots capable of safely operating in dynamic environments by understanding nuanced human requests.</li>
+            <li><strong>Service and Hospitality</strong>: Robots that can anticipate and perform tasks such as serving food or tidying spaces without specific training for each action.</li>
+          </ul>
+
+          <h3 class="title is-4">Final Thoughts</h3>
+          <p>
+            The development of ActAIM2 represents a significant leap forward in autonomous learning for robots, unlocking the ability for machines to learn, adapt, and perform with minimal human oversight. It’s not just about creating more capable robots; it’s about making them smarter, more efficient, and better integrated into human-centered tasks. This innovation opens the door to a future where machines are not just tools but active, intelligent collaborators in our daily lives.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- End of Blog Reading Session -->
 
 <!-- Image carousel -->
 <section class="section hero is-light">
@@ -178,8 +246,8 @@
         <img src="static/images/figures/Fig2_3.png" alt="MY ALT TEXT"/>
         <h2 class="subtitle has-text-centered">
           GMM Model Selector The mode selector, a generative model, processes the differences between
-the initial and final image visual embeddings as generated data, using the initial image embeddings as the
-conditional variable.
+  the initial and final image visual embeddings as generated data, using the initial image embeddings as the
+  conditional variable.
         </h2>
       </div>
       <div class="item">
@@ -187,9 +255,9 @@ conditional variable.
         <img src="static/images/figures/fig3.jpg" alt="MY ALT TEXT"/>
         <h2 class="subtitle has-text-centered">
          Behavior Cloning Action Predictor Interaction mode ε is sampled from latent space
-embedding from model selector. 5 Multiview RGBD observations from circled cameras are back-projected and
-fused into a color point cloud to render novel views. Rendered image tokens and interaction mode token are
-contacted and fed through a multiview transformer to predict action a = (p, R, q).
+  embedding from model selector. 5 Multiview RGBD observations from circled cameras are back-projected and
+  fused into a color point cloud to render novel views. Rendered image tokens and interaction mode token are
+  contacted and fed through a multiview transformer to predict action a = (p, R, q).
        </h2>
      </div>
      <div class="item">
@@ -197,13 +265,13 @@ contacted and fed through a multiview transformer to predict action a = (p, R, q
       <img src="static/images/figures/mode_selector.png" alt="MY ALT TEXT"/>
       <h2 class="subtitle has-text-centered">
         Mode Selector Decoder Architecture: The depicted architecture highlights the functionality
-of the mode selector decoder, which is designed to process two primary inputs: multi-view RGBD images
-O i = (O 0 i , O 1 i , O 2 i , O 3 i , O 4 i ), and the Mixture of Gaussian (GMM) variable x. It is important to note that x
-can be represented as a multi-view feature vector, with our encoding approach preserving the separation of
-multi-view channels. Initially, the multi-view RGBD images are passed through a pre-trained VGG-19 image
-encoder to extract feature vectors for each view. Subsequently, these feature vectors, along with the GMM
-variable x, are inputted into a joint transformer. This transformer, featuring four attention layers, is tasked with
-producing the means and variances associated with the reconstructed task embedding ϵ.
+  of the mode selector decoder, which is designed to process two primary inputs: multi-view RGBD images
+  O i = (O 0 i , O 1 i , O 2 i , O 3 i , O 4 i ), and the Mixture of Gaussian (GMM) variable x. It is important to note that x
+  can be represented as a multi-view feature vector, with our encoding approach preserving the separation of
+  multi-view channels. Initially, the multi-view RGBD images are passed through a pre-trained VGG-19 image
+  encoder to extract feature vectors for each view. Subsequently, these feature vectors, along with the GMM
+  variable x, are inputted into a joint transformer. This transformer, featuring four attention layers, is tasked with
+  producing the means and variances associated with the reconstructed task embedding ϵ.
       </h2>
     </div>
      <div class="item">
@@ -211,13 +279,13 @@ producing the means and variances associated with the reconstructed task embeddi
       <img src="static/images/figures/action_predictor.png" alt="MY ALT TEXT"/>
       <h2 class="subtitle has-text-centered">
         Action Predictor Architecture: This model integrates multi-view observations directly as input,
-sourced from predefined cameras within the scene. The process begins with the extraction of five RGBD images,
-which are subsequently transformed into RGB point clouds. These are then subject to orthogonal projection
-to generate five novel view images. Subsequently, these novel views are partitioned into smaller patches and
-fed into a joint transformer. This transformer, characterized by four attention layers, integrates the sampled
-task embedding derived from a Mixture of Gaussian distribution. The architecture of the joint transformer
-encompasses eight attention layers, culminating in the production of a heatmap. This heatmap delineates the
-action’s translation, the discretized rotation, and a binary variable indicating the gripper’s state—open or closed.
+  sourced from predefined cameras within the scene. The process begins with the extraction of five RGBD images,
+  which are subsequently transformed into RGB point clouds. These are then subject to orthogonal projection
+  to generate five novel view images. Subsequently, these novel views are partitioned into smaller patches and
+  fed into a joint transformer. This transformer, characterized by four attention layers, integrates the sampled
+  task embedding derived from a Mixture of Gaussian distribution. The architecture of the joint transformer
+  encompasses eight attention layers, culminating in the production of a heatmap. This heatmap delineates the
+  action’s translation, the discretized rotation, and a binary variable indicating the gripper’s state—open or closed.
       </h2>
      </div>
      <div class="item">
@@ -225,15 +293,15 @@ action’s translation, the discretized rotation, and a binary variable indicati
       <img src="static/images/figures/mode_selector_training.png" alt="MY ALT TEXT"/>
       <h2 class="subtitle has-text-centered">
         Training Process of the Mode Selector: This figure illustrates the training procedure of the mode selector,
-mirroring the approach of a conditional generative model. It highlights the contrastive analysis between the
-initial and final observations—the latter serving as the ground truth for task embedding—to delineate generated
-data against the backdrop of encoded initial images as the conditional variable. The process involves inputting
-both the generated task embedding data and the conditional variable into a 4-layer Residual network-based mode
-encoder, which then predicts the categorical variable c. Following the Gaussian Mixture Variational Autoencoder
-(GMVAE) methodology, the Gaussian Mixture Model (GMM) variable x is computed and introduced alongside
-the conditional variable to the task embedding transformer decoder. This model is tasked with predicting the
-reconstructed task embedding, sampled from the Gaussian distribution as outlined in the architecture of the
-mode selector decoder, and calculating the reconstruction loss against the input ground truth data.
+  mirroring the approach of a conditional generative model. It highlights the contrastive analysis between the
+  initial and final observations—the latter serving as the ground truth for task embedding—to delineate generated
+  data against the backdrop of encoded initial images as the conditional variable. The process involves inputting
+  both the generated task embedding data and the conditional variable into a 4-layer Residual network-based mode
+  encoder, which then predicts the categorical variable c. Following the Gaussian Mixture Variational Autoencoder
+  (GMVAE) methodology, the Gaussian Mixture Model (GMM) variable x is computed and introduced alongside
+  the conditional variable to the task embedding transformer decoder. This model is tasked with predicting the
+  reconstructed task embedding, sampled from the Gaussian distribution as outlined in the architecture of the
+  mode selector decoder, and calculating the reconstruction loss against the input ground truth data.
       </h2>
     </div>
      <div class="item">
@@ -241,13 +309,13 @@ mode selector decoder, and calculating the reconstruction loss against the input
       <img src="static/images/figures/mode_selector_inference.png" alt="MY ALT TEXT"/>
       <h2 class="subtitle has-text-centered">
         Action Predictor Architecture: This model integrates multi-view observations directly as input,
-sourced from predefined cameras within the scene. The process begins with the extraction of five RGBD images,
-which are subsequently transformed into RGB point clouds. These are then subject to orthogonal projection
-to generate five novel view images. Subsequently, these novel views are partitioned into smaller patches and
-fed into a joint transformer. This transformer, characterized by four attention layers, integrates the sampled
-task embedding derived from a Mixture of Gaussian distribution. The architecture of the joint transformer
-encompasses eight attention layers, culminating in the production of a heatmap. This heatmap delineates the
-action’s translation, the discretized rotation, and a binary variable indicating the gripper’s state—open or closed.
+  sourced from predefined cameras within the scene. The process begins with the extraction of five RGBD images,
+  which are subsequently transformed into RGB point clouds. These are then subject to orthogonal projection
+  to generate five novel view images. Subsequently, these novel views are partitioned into smaller patches and
+  fed into a joint transformer. This transformer, characterized by four attention layers, integrates the sampled
+  task embedding derived from a Mixture of Gaussian distribution. The architecture of the joint transformer
+  encompasses eight attention layers, culminating in the production of a heatmap. This heatmap delineates the
+  action’s translation, the discretized rotation, and a binary variable indicating the gripper’s state—open or closed.
       </h2>
      </div>
 
@@ -488,5 +556,3 @@ action’s translation, the discretized rotation, and a binary variable indicati
 
   </body>
   </html>
-
-  
